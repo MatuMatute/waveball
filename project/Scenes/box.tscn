@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bswu8ib2vshpy"]
+
+[ext_resource type="Script" uid="uid://yalvc5gnvotv" path="res://Scripts/box.gd" id="1_xkb4e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xkb4e"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="Gradient" id="Gradient_xkb4e"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ego7h"]
+gradient = SubResource("Gradient_xkb4e")
+
+[node name="Box" type="WaveBall"]
+input_pickable = true
+freeze_mode = 1
+script = ExtResource("1_xkb4e")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xkb4e")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(6.556511e-07, 6.556511e-07)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_ego7h")
+
+[connection signal="input_event" from="." to="." method="onInputEvent"]
+[connection signal="mouse_exited" from="." to="." method="mouseExited"]

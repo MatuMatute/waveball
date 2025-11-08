@@ -1,0 +1,361 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2yya17xcjrja"]
+
+[ext_resource type="PackedScene" uid="uid://b34gldhgeu6ie" path="res://Scenes/waveBall.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://coxqkvyhccwfl" path="res://Scenes/death_border.tscn" id="1_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b2pmn16imsgol" path="res://Scenes/rotatablePlatform.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bswu8ib2vshpy" path="res://Scenes/box.tscn" id="3_8gbba"]
+[ext_resource type="FontFile" uid="uid://ce8vdgqk4i1k3" path="res://Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="5_kry3j"]
+
+[sub_resource type="Gradient" id="Gradient_8gbba"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jjvhh"]
+gradient = SubResource("Gradient_8gbba")
+width = 1920
+height = 1080
+fill_from = Vector2(1, 0.6160714)
+
+[sub_resource type="LabelSettings" id="LabelSettings_21xkr"]
+font = ExtResource("5_kry3j")
+
+[sub_resource type="Animation" id="Animation_6bp64"]
+resource_name = "beginning"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotatablePlatform:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotatablePlatform2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boxes/Box2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Boxes/Box3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/Text:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4, 7, 10, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "THIS IS WAVEBALL.", "YOU'RE WAVEBALL'S ONLY FRIEND.", "WAVEBALL NEEDS TO REACH THE TOP.", "WILL YOU HELP WAVEBALL?", ""]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/Text:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Boxes/Box2:input_pickable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.033333335, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Boxes/Box3:input_pickable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.033333335, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RotatablePlatform2:input_pickable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.033333335, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RotatablePlatform:input_pickable")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.033333335, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HUD/Text:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(13, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_344ge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotatablePlatform:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotatablePlatform2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boxes/Box2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Boxes/Box3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/Text:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/Text:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Boxes/Box2:input_pickable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Boxes/Box3:input_pickable")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RotatablePlatform2:input_pickable")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RotatablePlatform:input_pickable")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HUD/Text:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynf5e"]
+_data = {
+&"RESET": SubResource("Animation_344ge"),
+&"beginning": SubResource("Animation_6bp64")
+}
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture = SubResource("GradientTexture2D_jjvhh")
+
+[node name="DeathBorder" parent="." instance=ExtResource("1_jjvhh")]
+position = Vector2(0, 960)
+
+[node name="WaveBall" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(239, -267)
+
+[node name="Camera" type="Camera2D" parent="WaveBall"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="RotatablePlatform" parent="." groups=["RotatablePlatforms"] instance=ExtResource("2_bo1nx")]
+position = Vector2(242, 405)
+
+[node name="RotatablePlatform2" parent="." groups=["RotatablePlatforms"] instance=ExtResource("2_bo1nx")]
+position = Vector2(-43, 438)
+
+[node name="Boxes" type="Node" parent="."]
+
+[node name="Box" parent="Boxes" groups=["PhysicNodes"] instance=ExtResource("3_8gbba")]
+position = Vector2(-128, 415)
+
+[node name="Box2" parent="Boxes" groups=["PhysicNodes"] instance=ExtResource("3_8gbba")]
+position = Vector2(154, 377)
+
+[node name="Box3" parent="Boxes" groups=["PhysicNodes"] instance=ExtResource("3_8gbba")]
+position = Vector2(328, 378)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Text" type="Label" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 16.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_21xkr")
+horizontal_alignment = 1
+
+[node name="Version" type="Label" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0.1.0"
+
+[node name="BeginningAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ynf5e")
+}
+autoplay = "beginning"

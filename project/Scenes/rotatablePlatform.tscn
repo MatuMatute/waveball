@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2pmn16imsgol"]
+
+[ext_resource type="Script" uid="uid://cs7jxsustjucj" path="res://Scripts/rotatablePlatform.gd" id="1_6w8iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjgbg"]
+size = Vector2(284, 20)
+
+[sub_resource type="Gradient" id="Gradient_bo1nx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gbba"]
+gradient = SubResource("Gradient_bo1nx")
+fill_from = Vector2(1, 0.94345236)
+
+[node name="RotatablePlatform" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_6w8iy")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jjgbg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(1.1444092e-05, -1.9073486e-06)
+scale = Vector2(4.4374995, 0.31250006)
+texture = SubResource("GradientTexture2D_8gbba")
+
+[connection signal="input_event" from="." to="." method="onInputEvent"]
+[connection signal="mouse_exited" from="." to="." method="onMouseExited"]

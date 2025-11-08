@@ -1,0 +1,29 @@
+#include "waveball.h"
+#include <godot_cpp/core/class_db.hpp>
+
+using namespace godot;
+
+void WaveBall::_bind_methods() {
+	ClassDB::bind_method(D_METHOD("returnToCheckpoint"), &WaveBall::returnToCheckpoint);
+}
+
+WaveBall::WaveBall() {
+	// Initialize any variables here.
+	checkpointPosition = Vector2(0.0f, 0.0f);
+}
+
+WaveBall::~WaveBall() {
+	// Add your cleanup here.
+}
+
+void WaveBall::_ready() {
+	checkpointPosition = get_position();
+}
+
+void WaveBall::returnToCheckpoint() {
+	Transform2D transform = get_global_transform();
+	transform.set_origin(checkpointPosition);
+	set_rotation(0.0f);
+	set_linear_velocity(Vector2(0.0f, 0.0f));
+	set_global_transform(transform);
+}

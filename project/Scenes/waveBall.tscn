@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b34gldhgeu6ie"]
+
+[ext_resource type="Texture2D" uid="uid://6s4nrxfs2jij" path="res://waveball.png" id="1_lkjow"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lkjow"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dm0k"]
+radius = 8.0
+
+[node name="WaveBall" type="WaveBall"]
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_lkjow")
+contact_monitor = true
+max_contacts_reported = 3
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_lkjow")
+
+[node name="Colision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7dm0k")
