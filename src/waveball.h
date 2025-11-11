@@ -21,6 +21,8 @@ public:
 	void _ready() override;
 	//void _process(double delta) override;
 	void returnToCheckpoint();
+
+	void setCheckpointPosition(Vector2 checkpoint);
 };
 
 }

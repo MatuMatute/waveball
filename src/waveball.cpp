@@ -5,15 +5,16 @@ using namespace godot;
 
 void WaveBall::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("returnToCheckpoint"), &WaveBall::returnToCheckpoint);
+	ClassDB::bind_method(D_METHOD("setCheckpointPosition", "checkpoint"), &WaveBall::setCheckpointPosition);
 }
 
 WaveBall::WaveBall() {
-	// Initialize any variables here.
+	// Constructor
 	checkpointPosition = Vector2(0.0f, 0.0f);
 }
 
 WaveBall::~WaveBall() {
-	// Add your cleanup here.
+	// Destructor
 }
 
 void WaveBall::_ready() {
@@ -21,9 +22,13 @@ void WaveBall::_ready() {
 }
 
 void WaveBall::returnToCheckpoint() {
-	Transform2D transform = get_global_transform();
+	Transform2D globalTransform = get_global_transform();
 	transform.set_origin(checkpointPosition);
-	set_rotation(0.0f);
+	rotate(0.0f);
 	set_linear_velocity(Vector2(0.0f, 0.0f));
 	set_global_transform(transform);
+}
+
+void WaveBall::setCheckpointPosition(Vector2 checkpoint) { 
+	checkpointPosition = checkpoint;
 }

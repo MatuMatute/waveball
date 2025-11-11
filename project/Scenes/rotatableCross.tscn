@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdf46s1xumc0a"]
+
+[sub_resource type="Gradient" id="Gradient_qvi4v"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aaqbo"]
+gradient = SubResource("Gradient_qvi4v")
+
+[sub_resource type="Gradient" id="Gradient_nr63l"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_egmxq"]
+gradient = SubResource("Gradient_nr63l")
+
+[node name="RotatableCross" type="RotatablePlatform"]
+input_pickable = true
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-8, 8)
+polygon = PackedVector2Array(-32, 0, -32, -16, 0, -16, 0, -45, 16, -45, 16, -16, 48, -16, 48, 0, 16, 0, 16, 32, 0, 32, 0, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.25, 0.24999999)
+texture = SubResource("GradientTexture2D_aaqbo")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 1.4999999)
+scale = Vector2(0.24999993, 1.203125)
+texture = SubResource("GradientTexture2D_egmxq")

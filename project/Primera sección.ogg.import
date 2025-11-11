@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ckl1koo3taqh1"
+path="res://.godot/imported/Primera sección.ogg-d75d15f9fdd5c317301e992eff1cdd56.oggvorbisstr"
+
+[deps]
+
+source_file="res://Primera sección.ogg"
+dest_files=["res://.godot/imported/Primera sección.ogg-d75d15f9fdd5c317301e992eff1cdd56.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
