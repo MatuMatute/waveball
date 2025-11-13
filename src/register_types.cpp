@@ -2,6 +2,7 @@
 
 #include "waveball.h"
 #include "rotatablePlatform.h"
+#include "rotatablePipe.h"
 #include "checkpointArea.h"
 
 #include <gdextension_interface.h>
@@ -17,6 +18,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
 	GDREGISTER_RUNTIME_CLASS(WaveBall);
 	GDREGISTER_RUNTIME_CLASS(RotatablePlatform);
+	GDREGISTER_RUNTIME_CLASS(RotatablePipe);
 	GDREGISTER_RUNTIME_CLASS(CheckpointArea);
 }
 

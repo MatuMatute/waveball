@@ -23,10 +23,10 @@ void WaveBall::_ready() {
 
 void WaveBall::returnToCheckpoint() {
 	Transform2D globalTransform = get_global_transform();
-	transform.set_origin(checkpointPosition);
+	globalTransform.set_origin(checkpointPosition);
 	rotate(0.0f);
 	set_linear_velocity(Vector2(0.0f, 0.0f));
-	set_global_transform(transform);
+	set_global_transform(globalTransform);
 }
 
 void WaveBall::setCheckpointPosition(Vector2 checkpoint) { 

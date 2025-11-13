@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://cy4oine13xe65"]
+
+[sub_resource type="Gradient" id="Gradient_caoq2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yut50"]
+gradient = SubResource("Gradient_caoq2")
+
+[sub_resource type="Gradient" id="Gradient_ujo26"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01icv"]
+gradient = SubResource("Gradient_ujo26")
+
+[sub_resource type="Gradient" id="Gradient_yut50"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ujo26"]
+gradient = SubResource("Gradient_yut50")
+
+[sub_resource type="Gradient" id="Gradient_01icv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l3oaj"]
+gradient = SubResource("Gradient_01icv")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piswy"]
+size = Vector2(36.5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caoq2"]
+size = Vector2(12, 37)
+
+[node name="CurvedRotatablePipe" type="RotatablePipe"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(10.000002, -19)
+scale = Vector2(0.062499985, 0.625)
+texture = SubResource("GradientTexture2D_yut50")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(-10, -29)
+scale = Vector2(0.0625, 0.31249994)
+texture = SubResource("GradientTexture2D_01icv")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(-27.5, -10.000001)
+scale = Vector2(0.359375, 0.062499996)
+texture = SubResource("GradientTexture2D_ujo26")
+
+[node name="Sprite4" type="Sprite2D" parent="."]
+position = Vector2(-19, 10.000001)
+scale = Vector2(0.625, 0.062499996)
+texture = SubResource("GradientTexture2D_l3oaj")
+
+[node name="Collision1" type="CollisionPolygon2D" parent="."]
+position = Vector2(-15, -16)
+polygon = PackedVector2Array(-24, 8, -24, 4, -1, 4, 2, 1, 3, -3, 3, -23, 7, -23, 7, -3, 4, 4, -1, 8)
+
+[node name="Collision2" type="CollisionPolygon2D" parent="."]
+position = Vector2(6, 4)
+polygon = PackedVector2Array(-45, 8, -45, 4, -5, 4, -1, 1, 2, -3, 2, -43, 6, -43, 6, -3, 2, 3, -5, 8)
+
+[node name="Clickable" type="Area2D" parent="."]
+position = Vector2(-3, -4)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Clickable"]
+polygon = PackedVector2Array(-36, -4, -36, 12, 4, 12, 8, 9, 11, 5, 11, -35, -5, -35, -5, -15, -8, -8, -13, -4)
+
+[node name="LeftEntrance" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="LeftEntrance"]
+position = Vector2(-18.25, 0)
+shape = SubResource("RectangleShape2D_piswy")
+
+[node name="RightEntrance" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="RightEntrance"]
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_caoq2")
+
+[node name="LeftLaunchPoint" type="Node2D" parent="."]
+position = Vector2(0, -39)
+
+[node name="RightLaunchPoint" type="Node2D" parent="."]
+position = Vector2(-39, 0)

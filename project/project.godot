@@ -25,6 +25,14 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="WaveBall"
 
+[layer_names]
+
+2d_render/layer_1="Player"
+2d_render/layer_2="Boxes"
+2d_physics/layer_1="Player"
+2d_navigation/layer_1="Player"
+2d_physics/layer_2="Boxes"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

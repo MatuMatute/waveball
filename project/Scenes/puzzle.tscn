@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://buwdfoou6ux4i"]
+
+[sub_resource type="Gradient" id="Gradient_b0617"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w7hsj"]
+gradient = SubResource("Gradient_b0617")
+fill_from = Vector2(0.9047619, 0)
+
+[sub_resource type="Gradient" id="Gradient_l3nli"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqgpl"]
+gradient = SubResource("Gradient_l3nli")
+
+[sub_resource type="Gradient" id="Gradient_tn68i"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oxp58"]
+gradient = SubResource("Gradient_tn68i")
+
+[sub_resource type="Gradient" id="Gradient_o71up"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ikmwr"]
+gradient = SubResource("Gradient_o71up")
+fill_to = Vector2(0.14285715, 0)
+
+[node name="Puzzle" type="Node2D"]
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(2, 64)
+scale = Vector2(0.0625, 1.875)
+texture = SubResource("GradientTexture2D_w7hsj")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(63.99999, 2)
+scale = Vector2(1.9999999, 0.0625)
+texture = SubResource("GradientTexture2D_lqgpl")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(64, 126)
+scale = Vector2(2, 0.0625)
+texture = SubResource("GradientTexture2D_oxp58")
+
+[node name="Sprite4" type="Sprite2D" parent="."]
+position = Vector2(126, 56)
+scale = Vector2(0.0625, 1.625)
+texture = SubResource("GradientTexture2D_ikmwr")
+
+[node name="BoxPuzzle" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="BoxCollision" type="CollisionPolygon2D" parent="BoxPuzzle"]
+polygon = PackedVector2Array(4, 4, 0, 0, 0, 128, 128, 128, 128, 0, 0, 0, 4, 4, 124, 4, 124, 124, 4, 124)
+
+[node name="PlayerBox" type="StaticBody2D" parent="."]
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="PlayerBox"]
+polygon = PackedVector2Array(128, 128, 128, 124, 124, 124, 4, 124, 4, 4, 124, 4, 124, 108, 128, 108, 128, 0, 0, 0, 0, 128)

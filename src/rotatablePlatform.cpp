@@ -11,6 +11,7 @@ void RotatablePlatform::_bind_methods() {
 
 RotatablePlatform::RotatablePlatform() {
 	// Constructor
+    set_pickable(true);
 	isBeingClicked = false;
     connect("mouse_exited", godot::Callable(this, "mouseExited"));
     connect("input_event", godot::Callable(this, "inputEvent"));

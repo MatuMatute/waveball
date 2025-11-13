@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cnqo06timwh7n"]
+
+[sub_resource type="Gradient" id="Gradient_6sh4r"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g84do"]
+gradient = SubResource("Gradient_6sh4r")
+
+[sub_resource type="Gradient" id="Gradient_g84do"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6cagi"]
+gradient = SubResource("Gradient_g84do")
+
+[sub_resource type="Gradient" id="Gradient_sp5qs"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq4u8"]
+gradient = SubResource("Gradient_sp5qs")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cagi"]
+size = Vector2(64, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sh4r"]
+size = Vector2(64, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g84do"]
+size = Vector2(64, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c72f0"]
+size = Vector2(30, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x84nx"]
+size = Vector2(30, 12)
+
+[node name="LinealRotatablePipe" type="RotatablePipe"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(1, 0.37500003)
+texture = SubResource("GradientTexture2D_g84do")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(0.28124997, 0.12499999)
+texture = SubResource("GradientTexture2D_6cagi")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+position = Vector2(13, 0)
+scale = Vector2(0.12499999, 0.21874999)
+texture = SubResource("GradientTexture2D_uq4u8")
+
+[node name="Collision1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_6cagi")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_6sh4r")
+
+[node name="Clickable" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Clickable"]
+shape = SubResource("RectangleShape2D_g84do")
+
+[node name="LeftEntrance" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="LeftEntrance"]
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_c72f0")
+
+[node name="RightEntrance" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="RightEntrance"]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_x84nx")
+
+[node name="LeftLaunchPoint" type="Node2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="RightLaunchPoint" type="Node2D" parent="."]
+position = Vector2(-32, 0)
