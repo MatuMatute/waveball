@@ -35,7 +35,7 @@ void RotatablePlatform::setClickedState(bool isClicked) {
 }
 
 void RotatablePlatform::inputEvent(Node* viewport, InputEvent* event, int shapeIdx) {
-    if (event->is_class("InputEventMouseButton")) {
+    if (event->is_class("InputEventMouseButton") || event->is_class("InputEventScreenTouch")) {
         if (event->is_pressed()) {
             isBeingClicked = true;
         }

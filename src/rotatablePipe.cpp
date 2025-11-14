@@ -27,6 +27,7 @@ RotatablePipe::RotatablePipe() {
 
 RotatablePipe::~RotatablePipe() {
     // Destructor
+    delete currentWaveball;
 }
 
 void RotatablePipe::_ready() {
@@ -41,7 +42,7 @@ void RotatablePipe::inputEvent(Node* viewport, InputEvent* event, int shapeIdx) 
         return;
     }
 
-    if (event->is_class("InputEventMouseButton")) {
+    if (event->is_class("InputEventMouseButton") || event->is_class("InputEventScreenTouch")) {
         if (event->is_pressed()) {
             Ref<Tween> tween = create_tween();
             tween->connect("finished", godot::Callable(this, "rotationFinished"), 4);

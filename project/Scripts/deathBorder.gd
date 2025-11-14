@@ -4,5 +4,6 @@ func onBodyEntered(body: Node2D) -> void:
 	if (body is WaveBall):
 		body.returnToCheckpoint();
 		get_tree().call_group("RotatablePlatforms", "set_rotation", 0.0);
+		get_tree().call_group("MovingPlatforms", "set_rotation", PI / 2);
 		get_tree().call_group("Pipes", "restartRotation");
 		get_tree().call_group("PhysicNodes", "returnToCheckpoint");

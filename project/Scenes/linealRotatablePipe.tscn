@@ -1,19 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnqo06timwh7n"]
+[gd_scene load_steps=7 format=3 uid="uid://cnqo06timwh7n"]
 
-[sub_resource type="Gradient" id="Gradient_6sh4r"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g84do"]
-gradient = SubResource("Gradient_6sh4r")
-
-[sub_resource type="Gradient" id="Gradient_g84do"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6cagi"]
-gradient = SubResource("Gradient_g84do")
-
-[sub_resource type="Gradient" id="Gradient_sp5qs"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uq4u8"]
-gradient = SubResource("Gradient_sp5qs")
+[ext_resource type="Texture2D" uid="uid://c7ylhagboiakg" path="res://platform.png" id="1_x84nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cagi"]
 size = Vector2(64, 5)
@@ -33,19 +20,9 @@ size = Vector2(30, 12)
 [node name="LinealRotatablePipe" type="RotatablePipe"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 9.536743e-07)
-scale = Vector2(1, 0.37500003)
-texture = SubResource("GradientTexture2D_g84do")
-
-[node name="Sprite2" type="Sprite2D" parent="."]
-position = Vector2(2.3841858e-07, 0)
-scale = Vector2(0.28124997, 0.12499999)
-texture = SubResource("GradientTexture2D_6cagi")
-
-[node name="Sprite3" type="Sprite2D" parent="."]
-position = Vector2(13, 0)
-scale = Vector2(0.12499999, 0.21874999)
-texture = SubResource("GradientTexture2D_uq4u8")
+position = Vector2(0, -2.3841858e-07)
+scale = Vector2(0.24999999, 1.1)
+texture = ExtResource("1_x84nx")
 
 [node name="Collision1" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10.5)
