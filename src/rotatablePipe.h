@@ -14,6 +14,7 @@ class RotatablePipe : public StaticBody2D {
 private:
     bool isBusy;
 	float initialRotation;
+	int launchSpeed;
 	WaveBall* currentWaveball;
 
 protected:
@@ -25,6 +26,9 @@ public:
 
 	void _ready() override;
 
+	void setLaunchSpeed(int newLaunchSpeed);
+	int getLaunchSpeed();
+	
     void inputEvent(Node* viewport, InputEvent* event, int shapeIdx);
 	void bodyLeftEntrance(Node2D* body);
 	void bodyRightEntrance(Node2D* body);

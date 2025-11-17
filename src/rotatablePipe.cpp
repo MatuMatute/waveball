@@ -11,18 +11,23 @@ using namespace godot;
 
 void RotatablePipe::_bind_methods() {
     ClassDB::bind_method(D_METHOD("inputEvent", "viewport", "event", "shapeIdx"), &RotatablePipe::inputEvent);
+    ClassDB::bind_method(D_METHOD("setLaunchSpeed", "newLaunchSpeed"), &RotatablePipe::setLaunchSpeed);
+    ClassDB::bind_method(D_METHOD("getLaunchSpeed"), &RotatablePipe::getLaunchSpeed);
     ClassDB::bind_method(D_METHOD("bodyLeftEntrance", "body"), &RotatablePipe::bodyLeftEntrance);
     ClassDB::bind_method(D_METHOD("bodyRightEntrance", "body"), &RotatablePipe::bodyRightEntrance);
     ClassDB::bind_method(D_METHOD("rotationFinished"), &RotatablePipe::rotationFinished);
     ClassDB::bind_method(D_METHOD("leftWaveballLaunch"), &RotatablePipe::leftWaveballLaunch);
     ClassDB::bind_method(D_METHOD("rightWaveballLaunch"), &RotatablePipe::rightWaveballLaunch);
     ClassDB::bind_method(D_METHOD("restartRotation"), &RotatablePipe::restartRotation);
+
+    ADD_PROPERTY(PropertyInfo(Variant::INT, "launchSpeed"), "setLaunchSpeed", "getLaunchSpeed");
 }
 
 RotatablePipe::RotatablePipe() {
     // Constructor
-    currentWaveball = nullptr;
+    launchSpeed = 200;
     isBusy = false;
+    currentWaveball = nullptr;
 }
 
 RotatablePipe::~RotatablePipe() {
@@ -36,6 +41,9 @@ void RotatablePipe::_ready() {
     get_node<Area2D>("LeftEntrance")->connect("body_entered", godot::Callable(this, "bodyLeftEntrance"));
     get_node<Area2D>("RightEntrance")->connect("body_entered", godot::Callable(this, "bodyRightEntrance"));
 }
+
+void RotatablePipe::setLaunchSpeed(int newLaunchSpeed) { launchSpeed = newLaunchSpeed; }
+int RotatablePipe::getLaunchSpeed() { return launchSpeed; }
 
 void RotatablePipe::inputEvent(Node* viewport, InputEvent* event, int shapeIdx) {
     if (isBusy) {
@@ -96,7 +104,7 @@ void RotatablePipe::leftWaveballLaunch() {
     Vector2 launchDirection = Vector2(0.0f, 0.0f);
     launchDirection = get_node<Node2D>("LeftLaunchPoint")->get_global_position() - currentWaveball->get_position();
     launchDirection.normalize();
-    launchDirection *= 250;
+    launchDirection *= launchSpeed;
     UtilityFunctions::print(launchDirection);
 
     currentWaveball->apply_impulse(launchDirection);
@@ -108,10 +116,10 @@ void RotatablePipe::rightWaveballLaunch() {
     Vector2 launchDirection = Vector2(0.0f, 0.0f);
     launchDirection = get_node<Node2D>("RightLaunchPoint")->get_global_position() - currentWaveball->get_position();
     launchDirection.normalize();
-    launchDirection *= 250;
-    UtilityFunctions::print(launchDirection);
+    launchDirection *= launchSpeed;
 
     currentWaveball->apply_impulse(launchDirection);
+    UtilityFunctions::print(currentWaveball->get_linear_velocity());
     isBusy = false;
 }
 

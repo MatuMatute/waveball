@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnqo06timwh7n"]
+[gd_scene load_steps=9 format=3 uid="uid://cnqo06timwh7n"]
 
+[ext_resource type="Shader" uid="uid://dwts6vyklh2gt" path="res://Shaders/invertColor.gdshader" id="1_auljr"]
 [ext_resource type="Texture2D" uid="uid://c7ylhagboiakg" path="res://platform.png" id="1_x84nx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u35vn"]
+shader = ExtResource("1_auljr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cagi"]
 size = Vector2(64, 5)
@@ -20,6 +24,7 @@ size = Vector2(30, 12)
 [node name="LinealRotatablePipe" type="RotatablePipe"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_u35vn")
 position = Vector2(0, -2.3841858e-07)
 scale = Vector2(0.24999999, 1.1)
 texture = ExtResource("1_x84nx")
