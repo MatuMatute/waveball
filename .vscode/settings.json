@@ -3,5 +3,6 @@
     "files.associations": {
         "optional": "cpp",
         "ranges": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/matias/Documentos/GitHub/waveball/godot-cpp"
 }

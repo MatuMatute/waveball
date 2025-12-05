@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="WaveBall"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations.en.translation", "res://translations.es.translation")
+
 [layer_names]
 
 2d_render/layer_1="Player"

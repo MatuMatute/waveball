@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2yya17xcjrja"]
+[gd_scene load_steps=24 format=3 uid="uid://c2yya17xcjrja"]
 
 [ext_resource type="PackedScene" uid="uid://b34gldhgeu6ie" path="res://Scenes/waveBall.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://coxqkvyhccwfl" path="res://Scenes/death_border.tscn" id="1_jjvhh"]
+[ext_resource type="Script" uid="uid://cs142u0vl7r65" path="res://Scripts/main.gd" id="1_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://b2pmn16imsgol" path="res://Scenes/rotatablePlatform.tscn" id="2_bo1nx"]
 [ext_resource type="AudioStream" uid="uid://ckl1koo3taqh1" path="res://Primera sección.ogg" id="5_21xkr"]
 [ext_resource type="FontFile" uid="uid://ce8vdgqk4i1k3" path="res://Sixtyfour-Regular-VariableFont_BLED,SCAN.ttf" id="5_kry3j"]
@@ -12,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://dwts6vyklh2gt" path="res://Shaders/invertColor.gdshader" id="11_6iyac"]
 [ext_resource type="PackedScene" uid="uid://buau8et2pnlea" path="res://Scenes/endArea2d.tscn" id="11_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://c7ylhagboiakg" path="res://platform.png" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://dwpmyjc1dptfm" path="res://Scenes/labyrinth.tscn" id="13_fdnlq"]
 
 [sub_resource type="Gradient" id="Gradient_8gbba"]
 
@@ -123,6 +125,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Labyrinth:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Labyrinth:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6bp64"]
 resource_name = "beginning"
@@ -161,7 +187,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 2, 4, 7, 10, 14),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "THIS IS WAVEBALL.", "YOU'RE WAVEBALL'S ONLY FRIEND.", "WAVEBALL NEEDS TO REACH THE TOP.", "WILL YOU HELP WAVEBALL?", ""]
+"values": ["", "DIALOG1", "DIALOG2", "DIALOG3", "DIALOG4", ""]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -223,6 +249,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Labyrinth:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Labyrinth:monitoring")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ynf5e"]
 _data = {
@@ -240,6 +290,7 @@ size = Vector2(64, 20)
 shader = ExtResource("11_6iyac")
 
 [node name="Main" type="Node"]
+script = ExtResource("1_jkdf5")
 
 [node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.4, 0.6)
@@ -313,7 +364,6 @@ position = Vector2(489, 387)
 position = Vector2(560, 387)
 
 [node name="CurvedRotatablePipe" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("9_ynf5e")]
-launchSpeed = 300
 position = Vector2(647, 387)
 
 [node name="LinealRotatablePipe5" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("8_344ge")]
@@ -373,12 +423,10 @@ position = Vector2(647, -769)
 rotation = 1.5707964
 
 [node name="CurvedRotatablePipe2" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("9_ynf5e")]
-launchSpeed = 300
 position = Vector2(647, -859)
 rotation = 4.712389
 
 [node name="CurvedRotatablePipe3" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("9_ynf5e")]
-launchSpeed = 300
 position = Vector2(-912, 378)
 
 [node name="LinealRotatablePipe18" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("8_344ge")]
@@ -392,8 +440,7 @@ position = Vector2(-912, 203)
 position = Vector2(-912, 120)
 rotation = 1.5707964
 
-[node name="CurvedRotatablePipe4" parent="RotatablePipes" instance=ExtResource("9_ynf5e")]
-launchSpeed = 300
+[node name="CurvedRotatablePipe4" parent="RotatablePipes" groups=["Pipes"] instance=ExtResource("9_ynf5e")]
 position = Vector2(-912, 29)
 rotation = 3.1415927
 
@@ -421,12 +468,13 @@ offset_left = -40.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "0.1.4"
+text = "0.1.5"
 
 [node name="BeginningAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ynf5e")
 }
+autoplay = "beginning"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_21xkr")
@@ -434,11 +482,11 @@ volume_db = -10.0
 parameters/looping = true
 
 [node name="CheckpointArea" parent="." instance=ExtResource("7_6bp64")]
-checkpointPosition = Vector2(-734, 32)
+checkpointPosition = Vector2(-740, 32)
 position = Vector2(-857, 18)
 
 [node name="CheckpointArea2" parent="." instance=ExtResource("7_6bp64")]
-checkpointPosition = Vector2(242, 360)
+checkpointPosition = Vector2(240, 350)
 position = Vector2(241, 356)
 
 [node name="BouncePad" type="StaticBody2D" parent="."]
@@ -466,3 +514,9 @@ material = SubResource("ShaderMaterial_fdnlq")
 position = Vector2(-7.6293945e-06, 3.8146973e-06)
 scale = Vector2(0.25000018, 1.0000004)
 texture = ExtResource("12_6iyac")
+
+[node name="Labyrinth" parent="." instance=ExtResource("13_fdnlq")]
+position = Vector2(828, 216)
+
+[connection signal="body_entered" from="Labyrinth" to="." method="_on_labyrinth_body_entered"]
+[connection signal="body_exited" from="Labyrinth" to="." method="_on_labyrinth_body_exited"]
